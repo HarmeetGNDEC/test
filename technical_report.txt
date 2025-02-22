@@ -1,0 +1,52 @@
+Technical Report: Entity Detection for Profanity and Privacy Violation
+1. Introduction
+The project involves the detection of Profanity and Privacy and Compliance Violations in call conversations, using different methods such as Pattern Matching and Machine Learning.
+The primary goal is to provide an automated system that can analyze conversation data to flag any violations of these entities.
+This document outlines the implementation recommendations, analysis strategies to detect these entities effectively.
+
+
+
+2. Problem Overview
+There are two main problems that we need to solve:
+
+Profanity Detection: Identifying offensive, profane, or inappropriate language used by either the agent or borrower in a conversation.
+Privacy and Compliance Violation: Detecting situations where sensitive information like account details, social security numbers, or financial information is shared without proper verification or consent.
+
+
+
+3. Implementation Recommendations
+
+
+a. Profanity Detection (Question-1)
+
+Pattern Matching Approach:
+Implementation: This method relies on detecting pre-defined sets of offensive words and phrases using regular expressions (regex).
+Strengths:
+Simple to implement and computationally efficient.
+Limitations:
+Limited to detecting only the words explicitly defined in the pattern list.
+
+Machine Learning Approach:
+Implementation: This approach involves training a supervised machine learning model (e.g. Logistic Regression) on a labeled dataset containing examples of profane and non-profane messages. Textual data is converted into numerical features using techniques like TF-IDF (Term Frequency-Inverse Document Frequency).
+Strengths:
+Can be fine-tuned based on the dataset to improve accuracy.
+Limitations:
+Requires a labeled dataset to train the model.
+May still miss new or domain-specific profanities.
+
+b. Privacy and Compliance Violation (Question-2)
+
+Pattern Matching Approach:
+Implementation: Use regex to identify sensitive information, such as Social Security Numbers (SSNs), Credit Card Numbers, or other identifiers, in the conversation text. Another pattern can check for the lack of identity verification details, such as the Date of Birth (DOB) or Address.
+Strengths:
+Simple to implement and computationally efficient.
+Limitations:
+Requires pre-defined patterns, which may miss new formats or patterns.
+
+Machine Learning Approach:
+Implementation: Train a supervised machine learning model to classify whether a conversation contains sensitive information or privacy violations. This model can be trained using labeled datasets containing conversations with and without privacy violations. Feature extraction can be done using TF-IDF.
+Strengths:
+Can generalize better to detect violations in varied formats.
+Limitations:
+Requires a labeled dataset for training.
+
